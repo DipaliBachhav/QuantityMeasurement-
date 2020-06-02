@@ -52,4 +52,15 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    public void givenFeetType_whenWithSameValueThen_ReturnTrue() {
+        try {
+            double feet1 = 2, feet2 = 2;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(feet1, Length.FEET);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(feet2, Length.FEET);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
