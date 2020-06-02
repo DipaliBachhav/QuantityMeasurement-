@@ -1,11 +1,7 @@
 package com.Measurement;
 
 public class QuantityMeasurement {
-    public Boolean checkFeetQuantity(Integer feet1,Integer feet2){
-
-        if (feet1 == feet1)
-            return true;
-        else
-            return false;
+    public boolean compare(MeasurementComparator measurementComparator1,MeasurementComparator measurementComparator2){
+        return measurementComparator1.equals(measurementComparator2);
     }
 }

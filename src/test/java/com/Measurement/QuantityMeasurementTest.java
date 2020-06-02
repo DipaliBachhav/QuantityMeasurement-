@@ -8,9 +8,9 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeetAndLengthIsZero_shouldCompareThen_ReturnTrue() {
-        int feet1 = 0;
-        int feet2 = 0;
-        boolean result = quantityMeasurement.checkFeetQuantity(feet1, feet2);
-        Assert.assertEquals(true, result);
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(0,Length.FEET);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(0,Length.FEET);
+        boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(true,result);
     }
 }
