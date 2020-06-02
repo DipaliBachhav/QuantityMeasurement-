@@ -27,4 +27,17 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
         }
     }
+
+    @Test
+    public void givenFeetAndFeetReference_shouldEqualThen_ReturnTrue()  {
+        try {
+            Double feet = 2.0;
+            Double value = feet;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(value, Length.FEET);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(value, Length.FEET);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
