@@ -133,4 +133,16 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+    @Test
+    public void given1FeetAnd12Inch_WhenEquals_ThenReturnTrue() {
+        try {
+            double feet = 1.0, inch = 12.0;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(feet, Length.FEET);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(inch, Length.INCH);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true,result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
+
 }
