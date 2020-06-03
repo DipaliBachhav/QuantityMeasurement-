@@ -1,8 +1,5 @@
 package com.Measurement;
 
-
-import java.util.Objects;
-
 public class MeasurementComparator {
     private double value;
 

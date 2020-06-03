@@ -19,10 +19,10 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeetValueIsNull_shouldThrowsException() {
-        MeasurementComparator converteInch = new MeasurementComparator(0, Length.FEET);
+        MeasurementComparator convertInch = new MeasurementComparator(0, Length.FEET);
         quantityMeasurement = new QuantityMeasurement();
         try {
-            boolean result = quantityMeasurement.compare(converteInch, null);
+            boolean result = quantityMeasurement.compare(convertInch, null);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
         }
@@ -145,4 +145,27 @@ public class QuantityMeasurementTest {
         }
     }
 
+    @Test
+    public void given12InchAnd1Feet_WhenEquals_ThenReturnTrue() {
+        try {
+            double inch = 12.0,feet = 1.0;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(inch, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(feet, Length.FEET);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true,result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
+
+    @Test
+    public void givenFeetAndYard_When3FeetEqualsTo1Yard_ThenReturnTrue(){
+        try{
+            double feet = 3,yard = 1;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(feet, Length.FEET);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(yard, Length.YARD);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true,result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
