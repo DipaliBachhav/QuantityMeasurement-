@@ -98,4 +98,16 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenFeetAndInch_whenWithZeroValue_ThenReturnTrue(){
+        try {
+            double feet = 0.0, inch = 0.0;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(feet, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(inch, Length.INCH);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
