@@ -176,7 +176,18 @@ public class QuantityMeasurementTest {
         MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.YARD);
         boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
         Assert.assertEquals(false,result);
-    }catch(QuantityMeasurementException e) {
+        }catch(QuantityMeasurementException e) {
         }
         }
+
+    @Test
+    public void givenInchAndYard_When1InchIsNotEqualsTo1Yard_ThenReturnFalse(){
+        try {
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.YARD);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(false, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
