@@ -63,4 +63,14 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenInchValue_whenNull_throwsException() {
+        MeasurementComparator convertInch = new MeasurementComparator(0, Length.INCH);
+        try {
+            boolean result = quantityMeasurement.compare(convertInch, null);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
+        }
+    }
 }
