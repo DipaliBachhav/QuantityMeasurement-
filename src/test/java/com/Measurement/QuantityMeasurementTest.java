@@ -168,4 +168,15 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenFeetAndYard_When1FeetNotEqualsTo1Yard_ThenReturnFalse(){
+        try{
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.FEET);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.YARD);
+        boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+        Assert.assertEquals(false,result);
+    }catch(QuantityMeasurementException e) {
+        }
+        }
 }
