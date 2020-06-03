@@ -73,4 +73,14 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
         }
     }
+
+    @Test
+    public void givenInchReference_shouldEqualThen_ReturnTrue() throws QuantityMeasurementException {
+        Double inch = 12.0;
+        Double value = inch;
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(value,Length.INCH);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(value,Length.INCH);
+        boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(true,result);
+    }
 }
