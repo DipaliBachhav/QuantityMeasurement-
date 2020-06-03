@@ -75,12 +75,27 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchReference_shouldEqualThen_ReturnTrue() throws QuantityMeasurementException {
-        Double inch = 12.0;
-        Double value = inch;
-        MeasurementComparator measurementComparator1 = new MeasurementComparator(value,Length.INCH);
-        MeasurementComparator measurementComparator2 = new MeasurementComparator(value,Length.INCH);
-        boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
-        Assert.assertEquals(true,result);
+    public void givenInchReference_shouldEqualThen_ReturnTrue() {
+        try {
+            Double inch = 12.0;
+            Double value = inch;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(inch, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(value, Length.INCH);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
+    @Test
+    public void givenInchAndInch_WhenSameType_ThenTrue(){
+        try {
+            Double inch1 = 12.0;
+            Double inch2 = 12.0;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(inch1, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(inch2, Length.INCH);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
     }
 }
