@@ -190,4 +190,15 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenInchAndYard_When36InchEqualsTo1Yard_ThenReturnTrue(){
+        try {
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(36, Length.INCH);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.YARD);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        }catch (QuantityMeasurementException e) {
+        }
+    }
 }
