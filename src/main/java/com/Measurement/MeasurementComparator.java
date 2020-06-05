@@ -10,7 +10,7 @@ public class MeasurementComparator {
         return value * length.getValue();
     }
 
-    public double getValue() {
+    public double getAdd() {
         return value;
     }
 

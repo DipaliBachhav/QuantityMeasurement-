@@ -8,6 +8,6 @@ public class QuantityMeasurement {
     }
 
     public double addition(MeasurementComparator measurementComparator1, MeasurementComparator measurementComparator2) {
-        return measurementComparator1.getValue()+measurementComparator2.getValue();
+        return measurementComparator1.getAdd()+measurementComparator2.getAdd();
     }
 }
