@@ -262,7 +262,6 @@ public class QuantityMeasurementTest {
     @Test
     public void givenLitreAndMilliLitre_whenEquals_ThenReturnTrue() {
         try {
-            double litre = 1, ml = 1000;
             MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.LITRE);
             MeasurementComparator measurementComparator2 = new MeasurementComparator(1000, Length.ML);
             Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
