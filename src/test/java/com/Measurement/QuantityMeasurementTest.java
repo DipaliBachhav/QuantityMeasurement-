@@ -241,7 +241,7 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(24,result,0);
     }
 
-   /* @Test
+    /*@Test
     public void givenInchAndCentimeter_WhenAdded_ThenReturnTrue(){
         MeasurementComparator measurementComparator1 = new MeasurementComparator(2,Length.INCH);
         MeasurementComparator measurementComparator2 = new MeasurementComparator(2.5,Length.CENTIMETER);
@@ -266,6 +266,28 @@ public class QuantityMeasurementTest {
             MeasurementComparator measurementComparator2 = new MeasurementComparator(1000, Length.ML);
             Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
             Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
+
+    @Test
+    public void givenKilogramAndGrams_whenEquals_ThenReturnTrue()  {
+    try{
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1,Length.KILOGRAMS);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1000,Length.GRAM);
+        boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        Assert.assertTrue(true);
+    }catch (QuantityMeasurementException e) {
+    }
+    }
+
+    @Test
+    public void givenTonneAndKilogram_whenEquals_ThenReturnTrue() {
+        try {
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(1000, Length.KILOGRAMS);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.TONNE);
+            boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertTrue(true);
         } catch (QuantityMeasurementException e) {
         }
     }
