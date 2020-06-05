@@ -10,6 +10,10 @@ public class MeasurementComparator {
         return value * length.getValue();
     }
 
+    public double getValue() {
+        return value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -17,4 +21,5 @@ public class MeasurementComparator {
         MeasurementComparator that = (MeasurementComparator) o;
         return Double.compare(that.value, value) == 0;
     }
+
 }
