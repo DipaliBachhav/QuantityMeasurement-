@@ -216,4 +216,12 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenTwoLength_WhenAdditionEquals_ThenReturnTrue() {
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(2, Length.INCH);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(2, Length.INCH);
+        double result = quantityMeasurement.addition(measurementComparator1, measurementComparator2);
+        Assert.assertEquals(4, result, 0);
+    }
 }
