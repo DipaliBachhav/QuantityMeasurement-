@@ -240,5 +240,35 @@ public class QuantityMeasurementTest {
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(24,result,0);
     }
+
+   /* @Test
+    public void givenInchAndCentimeter_WhenAdded_ThenReturnTrue(){
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(2,Length.INCH);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(2.5,Length.CENTIMETER);
+        double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(3,result,0);
+    }*/
+
+    @Test
+    public void givenGallonAndLitre_WhenEquals_ThenReturnTrue() {
+        try {
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.GALLON);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(3.78, Length.LITRE);
+            Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        }catch (QuantityMeasurementException e) {
+        }
+    }
+    @Test
+    public void givenLitreAndMilliLitre_whenEquals_ThenReturnTrue() {
+        try {
+            double litre = 1, ml = 1000;
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.LITRE);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1000, Length.ML);
+            Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(true, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
 }
 
