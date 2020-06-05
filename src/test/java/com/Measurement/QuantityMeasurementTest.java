@@ -232,5 +232,13 @@ public class QuantityMeasurementTest {
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(14,result,0);
     }
+
+    @Test
+    public void givenFeetAndFeet_WhenAdded_ThenReturnTrue(){
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1,Length.FEET);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1,Length.FEET);
+        double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(24,result,0);
+    }
 }
 
