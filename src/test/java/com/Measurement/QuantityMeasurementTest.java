@@ -291,5 +291,13 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenTonneAndGrams_whenAdded_ThenReturnTrue(){
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1000,Length.GRAM);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1,Length.TONNE);
+        double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(1001,result,0);
+    }
 }
 
