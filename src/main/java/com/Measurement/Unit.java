@@ -1,6 +1,6 @@
 package com.Measurement;
 
-public enum Length {
+public enum Unit {
     FEET(12), INCH(1 ),YARD(36)
     ,CENTIMETER(0.4), GALLON(3.78),
     LITRE(1),MILLITRE(0.001),KILOGRAMS(1),
@@ -9,7 +9,7 @@ public enum Length {
 
     public final double value;
 
-    Length(double value) {
+    Unit(double value) {
         this.value = value;
     }
 
@@ -18,3 +18,4 @@ public enum Length {
     }
 
 }
+

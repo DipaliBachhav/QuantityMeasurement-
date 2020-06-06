@@ -3,14 +3,14 @@ package com.Measurement;
 public class MeasurementComparator {
 
     private double value;
-    Length unit;
+    Unit unit;
 
-    public MeasurementComparator(double value, Length length) {
-        this.unit=length;
-        this.value = compare(value,length);
+    public MeasurementComparator(double value, Unit unit) {
+        this.unit=unit;
+        this.value = compare(value,unit);
     }
-    public double compare(double value,Length length){
-        return value * length.getValue();
+    public double compare(double value, Unit unit){
+        return value * unit.getValue();
     }
 
     public double getAdd() {
