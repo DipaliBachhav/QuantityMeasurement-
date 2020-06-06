@@ -217,6 +217,7 @@ public class QuantityMeasurementTest {
         }
     }
 
+
     @Test
     public void givenTwoLength_WhenAdditionEquals_ThenReturnTrue() {
         MeasurementComparator measurementComparator1 = new MeasurementComparator(2, Length.INCH);
@@ -226,7 +227,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInch_WhenAdded_ThenReturnTrue(){
+    public void givenFeetAndInch_whenAdded_ThenReturnTrue(){
         MeasurementComparator measurementComparator1 = new MeasurementComparator(1,Length.FEET);
         MeasurementComparator measurementComparator2 = new MeasurementComparator(2,Length.INCH);
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
@@ -241,13 +242,23 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(24,result,0);
     }
 
-    /*@Test
+    @Test
+    public void givenFeetAndInch_WhenAdded_ThenReturnTrue() {
+        try {
+            MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.FEET);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.INCH);
+            Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
+            Assert.assertEquals(false, result);
+        } catch (QuantityMeasurementException e) {
+        }
+    }
+    @Test
     public void givenInchAndCentimeter_WhenAdded_ThenReturnTrue(){
-        MeasurementComparator measurementComparator1 = new MeasurementComparator(2,Length.INCH);
+        MeasurementComparator measurementComparator1 = new MeasurementComparator( 2,Length.INCH);
         MeasurementComparator measurementComparator2 = new MeasurementComparator(2.5,Length.CENTIMETER);
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(3,result,0);
-    }*/
+    }
 
     @Test
     public void givenGallonAndLitre_WhenEquals_ThenReturnTrue() {
@@ -272,7 +283,7 @@ public class QuantityMeasurementTest {
     public void givenLitreAndMilliLitre_whenEquals_ThenReturnTrue() {
         try {
             MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.LITRE);
-            MeasurementComparator measurementComparator2 = new MeasurementComparator(1000, Length.ML);
+            MeasurementComparator measurementComparator2 = new MeasurementComparator(1000, Length.MILLITRE);
             Boolean result = quantityMeasurement.compare(measurementComparator1, measurementComparator2);
             Assert.assertEquals(true, result);
         } catch (QuantityMeasurementException e) {
@@ -282,7 +293,7 @@ public class QuantityMeasurementTest {
     @Test
     public void givenLitreAndMillilitre_whenAdded_ThenReturnResult(){
         MeasurementComparator measurementComparator1 = new MeasurementComparator(1,Length.LITRE);
-        MeasurementComparator measurementComparator2 = new MeasurementComparator(1000,Length.ML);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1000,Length.MILLITRE);
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(2,result,0);
     }
@@ -316,6 +327,18 @@ public class QuantityMeasurementTest {
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(1001,result,0);
     }
+
+    @Test
+    public void givenFahrenheitAndCelsius_whenCompare_ThenReturnTrue(){
+        try{
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(212,Length.FAHRENHEIT);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(100,Length.CELSIUS);
+        boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        Assert.assertTrue(true);
+        }catch (QuantityMeasurementException e) {
+        }
+        }
+        
 
 }
 

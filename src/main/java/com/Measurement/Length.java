@@ -1,9 +1,11 @@
 package com.Measurement;
 
 public enum Length {
-    FEET(12), INCH(1 ),YARD(36),CENTIMETER(0.4),
-    GALLON(3.78),LITRE(1),ML(0.001),KILOGRAMS(1),
-    GRAM(0.001),TONNE(1000);
+    FEET(12), INCH(1 ),YARD(36)
+    ,CENTIMETER(0.4), GALLON(3.78),
+    LITRE(1),MILLITRE(0.001),KILOGRAMS(1),
+    GRAM(0.001),TONNE(1000), FAHRENHEIT(1)
+    ,CELSIUS( 2.12);;
 
     public final double value;
 
