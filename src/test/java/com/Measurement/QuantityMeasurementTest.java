@@ -259,6 +259,15 @@ public class QuantityMeasurementTest {
         }catch (QuantityMeasurementException e) {
         }
     }
+
+    @Test
+    public void givenGallonAndLitre_whenAdded_ThenReturnResult(){
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(3.78,Length.LITRE);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1,Length.GALLON);
+        double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(7.56,result,0);
+    }
+
     @Test
     public void givenLitreAndMilliLitre_whenEquals_ThenReturnTrue() {
         try {
@@ -268,6 +277,14 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(true, result);
         } catch (QuantityMeasurementException e) {
         }
+    }
+
+    @Test
+    public void givenLitreAndMillilitre_whenAdded_ThenReturnResult(){
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1,Length.LITRE);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1000,Length.ML);
+        double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
+        Assert.assertEquals(2,result,0);
     }
 
     @Test
@@ -299,5 +316,6 @@ public class QuantityMeasurementTest {
         double result = quantityMeasurement.addition(measurementComparator1,measurementComparator2);
         Assert.assertEquals(1001,result,0);
     }
+
 }
 
