@@ -338,7 +338,50 @@ public class QuantityMeasurementTest {
         }catch (QuantityMeasurementException e) {
         }
         }
-        
+
+    @Test
+    public void givenInchAndKilogram_whenCompare_throwsException() {
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.INCH);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.KILOGRAMS);
+        try {
+            boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.WRONG_UNIT_COMPARISON, e.type);
+        }
+    }
+
+    @Test
+    public void givenFeetAndLitre_whenCompare_throwsException() {
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.FEET);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(1, Length.LITRE);
+        try {
+            boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.WRONG_UNIT_COMPARISON, e.type);
+        }
+    }
+
+    @Test
+    public void givenFeetAndFahrenheit_whenCompare_throwsException() {
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.FEET);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(212, Length.FAHRENHEIT);
+        try {
+            boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.WRONG_UNIT_COMPARISON, e.type);
+        }
+    }
+
+    @Test
+    public void givenMillitreAndFahrenheit_whenCompare_throwsException() {
+        MeasurementComparator measurementComparator1 = new MeasurementComparator(1, Length.MILLITRE);
+        MeasurementComparator measurementComparator2 = new MeasurementComparator(212, Length.FAHRENHEIT);
+        try {
+            boolean result = quantityMeasurement.compare(measurementComparator1,measurementComparator2);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.WRONG_UNIT_COMPARISON, e.type);
+        }
+    }
 
 }
 
